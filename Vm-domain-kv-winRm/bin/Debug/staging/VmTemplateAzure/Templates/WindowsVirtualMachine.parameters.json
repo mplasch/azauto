@@ -1,0 +1,76 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "existingVirtualNetworkName": {
+      "value": "US-N-DPMS-NET-PDCO-001"
+    },
+    "existingVirtualNetworkResourceGroup": {
+      "value": "US-N-DPMS-RSG-SOAR-001"
+    },
+    "subnetName": {
+      "value": "Data"
+    },
+    "diagStorageAccountName": {
+      "value": "usnpcmslstgdiag001"
+    },
+    "vmName": {
+      "value": "AZSAPSQL608"
+    },
+    "vmSize": {
+      "value": "Standard_D2_v3"
+    },
+    "adminUsername": {
+      "value": "AzureAdmin"
+    },
+    "adminPassword": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/55ed35f4-b277-4f5b-a5b7-23cb4aabec08/resourceGroups/US-N-DPMS-RSG-SOAR-001/providers/Microsoft.KeyVault/vaults/PDCO-KeyVault"
+        },
+        "secretName": "DolphinAdminPassword"
+      }
+    },
+    "domainToJoin": {
+      "value": "corp.pattersoncompanies.com"
+    },
+    "domainUsername": {
+      "value": "pdco\\AzureServerAdmin-S"
+    },
+    "domainPassword": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/55ed35f4-b277-4f5b-a5b7-23cb4aabec08/resourceGroups/US-N-DPMS-RSG-SOAR-001/providers/Microsoft.KeyVault/vaults/PDCO-KeyVault"
+        },
+        "secretName": "AdJoinAdminPassword"
+      }
+    },
+    "domainJoinOptions": {
+      "value": 3
+    },
+    "ouPath": {
+      "value": "OU=W2016,OU=Global,OU=PDCOServers,DC=corp,DC=pattersoncompanies,DC=com"
+    },
+
+    "dnsLabelPrefix": {
+      "value": "AZSAPSQL608"
+    },
+    "windowsOSVersion": {
+      "value": "2019-Datacenter"
+    },
+    "vaultName": {
+      "value": "PDCO-KeyVault"
+    },
+    "vaultResourceGroup": {
+      "value": "US-N-DPMS-RSG-SOAR-001"
+    },
+    "certificateUrl": {
+      "value": "https://pdco-keyvault.vault.azure.net/secrets/azurelogautomationcert/578e863d33cb42988332c95252058add"
+    },
+    "availabilitySetName": {
+      "value": "US-S-SAP-AVS-SQL-607"
+    }
+
+  }
+}
+
